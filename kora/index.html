@@ -11,51 +11,47 @@ body {
   font-family:"Garamond", serif;
   overflow-x:hidden;
 }
-
-/* FADE */
 .fade { opacity:0; transform:translateY(40px); transition:all 1.4s ease; }
 .fade.show { opacity:1; transform:translateY(0); }
 
-/* HERO */
 .hero {
   height:90vh;
-  background:url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1600&q=80') center/cover;
+  background:url('https://source.unsplash.com/1600x900/?yoga,studio') center/cover;
   display:flex; align-items:center; justify-content:center;
   position:relative;
 }
 .hero::after {
-  content:"";
-  position:absolute; inset:0;
-  background:rgba(255,255,255,0.45);
+  content:""; position:absolute; inset:0;
+  background:rgba(255,255,255,0.55);
 }
 .hero h1 {
   position:relative;
-  font-size:56px;
+  font-size:52px;
   padding:20px 40px;
-  background:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.8);
   border-radius:20px;
 }
 
-/* FLOATING CARDS */
 .section {
-  max-width:1200px; margin:120px auto; padding:0 20px;
+  max-width:1100px; margin:120px auto; padding:0 20px;
 }
 .card {
-  background:#fff;
+  background:#ffffff;
   border-radius:20px;
   padding:30px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.1);
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+  margin-bottom:40px;
   transition:transform 0.8s ease, box-shadow 0.8s ease;
 }
 .card:hover {
-  transform:translateY(-20px);
-  box-shadow:0 30px 60px rgba(0,0,0,0.15);
+  transform:translateY(-16px);
+  box-shadow:0 30px 60px rgba(0,0,0,0.12);
 }
 .card img {
   width:100%; border-radius:16px; margin-bottom:20px;
 }
 .card h2 {
-  font-size:32px; margin-bottom:10px;
+  font-size:30px; margin-bottom:10px;
 }
 .card p {
   font-size:18px; color:#555;
@@ -75,21 +71,21 @@ body {
 
 <div class="section fade">
   <div class="card">
-    <img src="https://images.unsplash.com/photo-1594737625785-cd0a5f6f0c5b?auto=format&fit=crop&w=1600&q=80">
+    <img src="https://source.unsplash.com/1600x900/?pilates,studio">
     <h2>Reformer Pilates</h2>
-    <p>Fließende Bewegungen. Tiefe Kontrolle. Körperbewusstsein in seiner reinsten Form.</p>
+    <p>Präzise Bewegung, tiefe Kontrolle, bewusste Ausrichtung.</p>
   </div>
 
   <div class="card">
-    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07f?auto=format&fit=crop&w=1600&q=80">
+    <img src="https://source.unsplash.com/1600x900/?pilates,mat">
     <h2>Mat Pilates</h2>
-    <p>Stabilität, Balance, Eleganz. Klassisches Pilates neu interpretiert.</p>
+    <p>Stabilität, Balance, Eleganz – klassisches Pilates neu gedacht.</p>
   </div>
 
   <div class="card">
-    <img src="https://images.unsplash.com/photo-1554344054-77a0e7e0e5f8?auto=format&fit=crop&w=1600&q=80">
+    <img src="https://source.unsplash.com/1600x900/?meditation,yoga">
     <h2>Yoga Flow</h2>
-    <p>Bewegung als Meditation. Atem als Rhythmus. Körper als Tempel.</p>
+    <p>Fließende Sequenzen, Atem als Rhythmus, Körper als Raum.</p>
   </div>
 </div>
 

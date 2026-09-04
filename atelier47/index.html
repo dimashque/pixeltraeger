@@ -7,38 +7,33 @@
 <style>
 body {
   margin:0; padding:0;
-  background:#0a0a0a; color:#f5f5f5;
+  background:#050505; color:#f5f5f5;
   font-family:"Inter", sans-serif;
   overflow-x:hidden;
 }
-
-/* FADE */
 .fade { opacity:0; transform:translateY(40px); transition:all 1.4s ease; }
 .fade.show { opacity:1; transform:translateY(0); }
 
-/* HERO */
 .hero {
   height:100vh;
-  background:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+  background:url('https://source.unsplash.com/1600x900/?portrait,studio') center/cover fixed;
   display:flex; align-items:center; justify-content:center;
   position:relative;
 }
 .hero::after {
-  content:"";
-  position:absolute; inset:0;
-  background:rgba(0,0,0,0.55);
+  content:""; position:absolute; inset:0;
+  background:rgba(0,0,0,0.6);
 }
 .hero h1 {
   position:relative;
-  font-size:64px;
-  letter-spacing:0.08em;
+  font-size:60px;
+  letter-spacing:0.12em;
   text-transform:uppercase;
   padding:20px 40px;
-  border:1px solid rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.3);
   backdrop-filter:blur(6px);
 }
 
-/* CINEMATIC GALLERY */
 .section {
   max-width:1200px; margin:120px auto; padding:0 20px;
 }
@@ -53,7 +48,7 @@ body {
 }
 .card img {
   width:100%;
-  filter:grayscale(100%) contrast(120%);
+  filter:grayscale(100%) contrast(130%);
   transition:filter 1.2s ease, transform 1.2s ease;
 }
 .card:hover img {
@@ -62,7 +57,7 @@ body {
 }
 .card h2 {
   margin-top:16px;
-  font-size:28px;
+  font-size:24px;
   text-transform:uppercase;
 }
 .card p {
@@ -86,27 +81,27 @@ body {
   <div class="grid">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1600&q=80">
+      <img src="https://source.unsplash.com/1600x900/?editorial,portrait">
       <h2>NOIR – Editorial</h2>
-      <p>Light. Shadow. Geometry. Stories carved into silence.</p>
+      <p>Light, shadow, geometry – stories carved into silence.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80">
+      <img src="https://source.unsplash.com/1600x900/?architecture,city">
       <h2>BAUWERK – Architecture</h2>
-      <p>Urban minimalism. Concrete poetry. Structural rhythm.</p>
+      <p>Urban minimalism, concrete poetry, structural rhythm.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80">
+      <img src="https://source.unsplash.com/1600x900/?fashion,studio">
       <h2>LUMEN – Campaign</h2>
-      <p>Cinematic fashion. Soft light. Human presence.</p>
+      <p>Cinematic fashion, soft light, human presence.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80">
+      <img src="https://source.unsplash.com/1600x900/?still-life,product">
       <h2>AUREA – Still Life</h2>
-      <p>Objects elevated. Light sculpted. Silence captured.</p>
+      <p>Objects elevated, light sculpted, silence captured.</p>
     </div>
 
   </div>

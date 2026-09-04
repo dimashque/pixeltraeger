@@ -7,59 +7,52 @@
 <style>
 body {
   margin:0; padding:0;
-  background:#0a0a0a; color:#eaeaea;
+  background:#050505; color:#eaeaea;
   font-family:"Inter", sans-serif;
   overflow-x:hidden;
 }
-
-/* GLOBAL FADE-IN */
 .fade { opacity:0; transform:translateY(40px); transition:all 1.4s ease; }
 .fade.show { opacity:1; transform:translateY(0); }
 
-/* HERO — CINEMATIC PARALLAX */
 .hero {
   height:100vh;
-  background:url('https://images.unsplash.com/photo-1529429617124-95b109e86a9a?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+  background:url('https://source.unsplash.com/1600x900/?architecture,minimal') center/cover fixed;
   display:flex; align-items:center; justify-content:center;
   position:relative;
 }
 .hero::after {
-  content:"";
-  position:absolute; inset:0;
-  background:rgba(0,0,0,0.55);
+  content:""; position:absolute; inset:0;
+  background:rgba(0,0,0,0.65);
 }
 .hero h1 {
   position:relative;
   font-size:64px;
-  letter-spacing:0.08em;
+  letter-spacing:0.12em;
   text-transform:uppercase;
   font-weight:700;
-  backdrop-filter:blur(6px);
   padding:20px 40px;
-  border:1px solid rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.3);
 }
 
-/* SECTION — IMMERSIVE PROJECTS */
 .section {
   max-width:1200px; margin:120px auto; padding:0 20px;
 }
 .project {
   margin-bottom:120px;
-  position:relative;
 }
 .project img {
-  width:100%; border-radius:16px;
-  filter:grayscale(100%) contrast(120%);
+  width:100%; border-radius:0;
+  filter:grayscale(100%) contrast(130%);
   transition:filter 1s ease, transform 1s ease;
 }
 .project:hover img {
   filter:grayscale(0%) contrast(100%);
-  transform:scale(1.02);
+  transform:scale(1.03);
 }
 .project h2 {
-  font-size:42px; margin-top:20px;
+  font-size:36px; margin-top:24px;
   text-transform:uppercase;
-  letter-spacing:0.06em;
+  letter-spacing:0.08em;
 }
 .project p {
   max-width:700px;
@@ -68,7 +61,6 @@ body {
   line-height:1.7;
 }
 
-/* BACK */
 .back {
   display:block; text-align:center; margin:80px auto;
   color:#7cf5ff; font-size:16px; text-decoration:none;
@@ -83,21 +75,21 @@ body {
 
 <div class="section fade">
   <div class="project">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80">
+    <img src="https://source.unsplash.com/1600x900/?architecture,concrete">
     <h2>Villa am Wannsee</h2>
-    <p>Ein architektonisches Manifest aus Beton, Glas und Licht. Räume, die atmen. Linien, die sprechen.</p>
+    <p>Beton, Glas, Schatten. Eine radikal klare Wohnskulptur am Wasser.</p>
   </div>
 
   <div class="project">
-    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80">
+    <img src="https://source.unsplash.com/1600x900/?building,minimal">
     <h2>Gewerbehof Altona</h2>
-    <p>Urbaner Komplex mit industrieller Eleganz. Struktur, Rhythmus, Materialehrlichkeit.</p>
+    <p>Industrielle Geometrie, modulare Struktur, urbane Identität.</p>
   </div>
 
   <div class="project">
-    <img src="https://images.unsplash.com/photo-1529429617124-95b109e86a9a?auto=format&fit=crop&w=1600&q=80">
+    <img src="https://source.unsplash.com/1600x900/?architecture,modern">
     <h2>Haus E36</h2>
-    <p>Geometrische Präzision. Räume als Skulpturen. Architektur als stille Poesie.</p>
+    <p>Strenge Linien, offene Räume, Licht als Material.</p>
   </div>
 </div>
 
