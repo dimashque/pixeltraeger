@@ -1,47 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ATELIER‑47 Photography – Berlin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body{font-family:"Editorial New",serif;background:#0b0d11;color:#f5f5f5;margin:0;padding:0;}
-    header,footer{padding:40px 20px;text-align:center;}
-    h1{font-size:36px;font-weight:600;}
-    h2{font-size:20px;margin-top:30px;}
-    p{color:#d1d5db;line-height:1.6;}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:20px;}
-    .work{background:#111827;padding:20px;border-radius:8px;}
-    a{color:#c7ff6b;text-decoration:none;}
-  </style>
+<meta charset="UTF-8">
+<title>ATELIER‑47 Photography – Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin:0; padding:0;
+  font-family:"Inter", sans-serif;
+  background:#0b0d11; color:#f5f5f5;
+  overflow-x:hidden;
+}
+
+/* Fade-in */
+.fade { opacity:0; transform:translateY(20px); transition:all 1s ease; }
+.fade.show { opacity:1; transform:translateY(0); }
+
+/* Cinematic header */
+header {
+  height:60vh;
+  background:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+}
+header h1 {
+  font-size:48px; font-weight:600;
+  backdrop-filter:blur(6px);
+  padding:20px 40px;
+  background:rgba(0,0,0,0.4);
+  border-radius:12px;
+}
+
+/* Gallery */
+.section {
+  max-width:1100px; margin:60px auto; padding:0 20px;
+}
+.grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+.card {
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+  padding:20px;
+  transition:transform .4s ease, background .4s ease;
+}
+.card:hover {
+  transform:translateY(-10px);
+  background:rgba(255,255,255,0.12);
+}
+.card img {
+  width:100%; border-radius:10px; margin-bottom:12px;
+}
+.card h2 { font-size:22px; margin-bottom:8px; }
+.card p { color:#d1d5db; }
+
+.back {
+  display:block; text-align:center; margin:40px auto;
+  color:#c7ff6b; text-decoration:none;
+  font-size:14px;
+}
+</style>
 </head>
 <body>
+
 <header>
-  <h1>Capturing Stories That Remain.</h1>
-  <p>Editorial & Commercial Photography based in Berlin.</p>
+  <h1 class="fade">ATELIER‑47 Photography</h1>
 </header>
 
-<section class="gallery">
-  <div class="work">
-    <h2>NOIR – Editorial</h2>
-    <p>Architectural storytelling through light and shadow.</p>
-  </div>
-  <div class="work">
-    <h2>BAUWERK – Architecture</h2>
-    <p>Minimalist compositions of urban structures.</p>
-  </div>
-  <div class="work">
-    <h2>LUMEN – Campaign</h2>
-    <p>Fashion and lifestyle photography with cinematic tone.</p>
-  </div>
-  <div class="work">
-    <h2>AUREA – Still Life</h2>
-    <p>Elegant product imagery with refined lighting.</p>
+<section class="section fade">
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80">
+      <h2>NOIR – Editorial</h2>
+      <p>Architectural storytelling through light and shadow.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80">
+      <h2>BAUWERK – Architecture</h2>
+      <p>Minimalist compositions of urban structures.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80">
+      <h2>LUMEN – Campaign</h2>
+      <p>Fashion and lifestyle photography with cinematic tone.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80">
+      <h2>AUREA – Still Life</h2>
+      <p>Elegant product imagery with refined lighting.</p>
+    </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 ATELIER‑47 Photography · <a href="../index.html">Zurück</a></p>
-</footer>
+<a class="back" href="../portfolio.html">← Back to Portfolio</a>
+
+<script>
+window.addEventListener("load", () => {
+  document.querySelectorAll(".fade").forEach(el => el.classList.add("show"));
+});
+</script>
+
 </body>
 </html>

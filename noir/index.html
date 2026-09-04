@@ -1,43 +1,103 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>NOIR Architektur – Räume für das Leben</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {font-family:"Neue Haas Grotesk",sans-serif;background:#0b0d11;color:#f5f5f5;margin:0;padding:0;}
-    header,footer{padding:40px 20px;text-align:center;}
-    h1{font-family:"Playfair Display",serif;font-size:36px;margin-bottom:10px;}
-    h2{font-size:20px;margin-top:30px;}
-    p{color:#d1d5db;line-height:1.6;}
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:20px;}
-    .project{background:#111827;padding:20px;border-radius:8px;}
-    a{color:#7cf5ff;text-decoration:none;}
-  </style>
+<meta charset="UTF-8">
+<title>NOIR Architektur – Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin:0; padding:0;
+  font-family: "Inter", sans-serif;
+  background:#0b0d11; color:#f5f5f5;
+  overflow-x:hidden;
+}
+
+/* Smooth fade-in */
+.fade { opacity:0; transform:translateY(20px); transition:all 1s ease; }
+.fade.show { opacity:1; transform:translateY(0); }
+
+/* Parallax header */
+header {
+  height:60vh;
+  background:url('https://images.unsplash.com/photo-1529429617124-95b109e86a9a?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+}
+header h1 {
+  font-size:48px; font-weight:600;
+  backdrop-filter:blur(6px);
+  padding:20px 40px;
+  background:rgba(0,0,0,0.4);
+  border-radius:12px;
+}
+
+/* Project cards */
+.section {
+  max-width:1100px; margin:60px auto; padding:0 20px;
+}
+.grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+.card {
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;
+  padding:20px;
+  transition:transform .4s ease, background .4s ease;
+}
+.card:hover {
+  transform:translateY(-10px);
+  background:rgba(255,255,255,0.12);
+}
+.card img {
+  width:100%; border-radius:10px; margin-bottom:12px;
+}
+.card h2 { font-size:22px; margin-bottom:8px; }
+.card p { color:#d1d5db; }
+
+.back {
+  display:block; text-align:center; margin:40px auto;
+  color:#7cf5ff; text-decoration:none;
+  font-size:14px;
+}
+</style>
 </head>
 <body>
+
 <header>
-  <h1>Architektur für Menschen. Räume für das Leben.</h1>
-  <p>NOIR Architekturstudio gestaltet zeitlose Gebäude mit Klarheit, Funktion und Atmosphäre.</p>
+  <h1 class="fade">NOIR Architektur</h1>
 </header>
 
-<section class="projects">
-  <div class="project">
-    <h2>Villa am Wannsee</h2>
-    <p>Wohnarchitektur mit Fokus auf Licht, Raum und Materialehrlichkeit.</p>
-  </div>
-  <div class="project">
-    <h2>Gewerbehof Altona</h2>
-    <p>Nachhaltige Gewerbeeinheiten mit klarer Struktur und urbaner Identität.</p>
-  </div>
-  <div class="project">
-    <h2>Haus E36</h2>
-    <p>Minimalistische Wohnarchitektur mit Beton, Glas und Holz.</p>
+<section class="section fade">
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80">
+      <h2>Villa am Wannsee</h2>
+      <p>Minimalistische Wohnarchitektur mit Beton, Glas und Lichtführung.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80">
+      <h2>Gewerbehof Altona</h2>
+      <p>Urbaner Gewerbekomplex mit nachhaltigen Materialien und klarer Struktur.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1529429617124-95b109e86a9a?auto=format&fit=crop&w=1200&q=80">
+      <h2>Haus E36</h2>
+      <p>Geometrische Linien, offene Räume, zeitlose Architektur.</p>
+    </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 NOIR Architektur · <a href="../index.html">Zurück</a></p>
-</footer>
+<a class="back" href="../portfolio.html">← Zurück zum Portfolio</a>
+
+<script>
+window.addEventListener("load", () => {
+  document.querySelectorAll(".fade").forEach(el => el.classList.add("show"));
+});
+</script>
+
 </body>
 </html>

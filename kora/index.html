@@ -1,43 +1,101 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>KORA Pilates Studio – Berlin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body{font-family:"Garamond",serif;background:#f5f3ef;color:#333;margin:0;padding:0;}
-    header,footer{padding:40px 20px;text-align:center;}
-    h1{font-size:34px;font-weight:600;}
-    h2{font-size:20px;margin-top:30px;}
-    p{line-height:1.6;}
-    .courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:20px;}
-    .course{background:#eae7e2;padding:20px;border-radius:8px;}
-    a{color:#6b705c;text-decoration:none;}
-  </style>
+<meta charset="UTF-8">
+<title>KORA Pilates – Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin:0; padding:0;
+  font-family:"Garamond", serif;
+  background:#f5f3ef; color:#333;
+  overflow-x:hidden;
+}
+
+/* Fade-in */
+.fade { opacity:0; transform:translateY(20px); transition:all 1s ease; }
+.fade.show { opacity:1; transform:translateY(0); }
+
+/* Soft header */
+header {
+  height:55vh;
+  background:url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1600&q=80') center/cover;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+}
+header h1 {
+  font-size:42px;
+  background:rgba(255,255,255,0.6);
+  padding:20px 40px;
+  border-radius:12px;
+}
+
+/* Cards */
+.section {
+  max-width:1100px; margin:60px auto; padding:0 20px;
+}
+.grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+.card {
+  background:#eae7e2;
+  border-radius:12px;
+  padding:20px;
+  transition:transform .4s ease, background .4s ease;
+}
+.card:hover {
+  transform:translateY(-10px);
+  background:#e2dfd9;
+}
+.card img {
+  width:100%; border-radius:10px; margin-bottom:12px;
+}
+.card h2 { font-size:22px; margin-bottom:8px; }
+.card p { color:#555; }
+
+.back {
+  display:block; text-align:center; margin:40px auto;
+  color:#6b705c; text-decoration:none;
+  font-size:14px;
+}
+</style>
 </head>
 <body>
+
 <header>
-  <h1>Bewegung. Balance. Wohlbefinden.</h1>
-  <p>Pilates in Berlin – für mehr Stärke, Flexibilität und innere Ruhe.</p>
+  <h1 class="fade">KORA Pilates Studio</h1>
 </header>
 
-<section class="courses">
-  <div class="course">
-    <h2>Reformer Pilates</h2>
-    <p>Kraft, Kontrolle & Ausrichtung – Training mit Geräten für gezielte Muskelarbeit.</p>
-  </div>
-  <div class="course">
-    <h2>Mat Pilates</h2>
-    <p>Beweglichkeit & Stabilität – klassisches Pilates auf der Matte.</p>
-  </div>
-  <div class="course">
-    <h2>Yoga Flow</h2>
-    <p>Bewegung & Achtsamkeit – fließende Sequenzen für Körper und Geist.</p>
+<section class="section fade">
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1594737625785-cd0a5f6f0c5b?auto=format&fit=crop&w=1200&q=80">
+      <h2>Reformer Pilates</h2>
+      <p>Kraft, Kontrolle & Ausrichtung – Training mit Geräten.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07f?auto=format&fit=crop&w=1200&q=80">
+      <h2>Mat Pilates</h2>
+      <p>Klassisches Pilates für Flexibilität & Stabilität.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1554344054-77a0e7e0e5f8?auto=format&fit=crop&w=1200&q=80">
+      <h2>Yoga Flow</h2>
+      <p>Fließende Sequenzen für Körper & Geist.</p>
+    </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 KORA Pilates Studio · <a href="../index.html">Zurück</a></p>
-</footer>
+<a class="back" href="../portfolio.html">← Zurück zum Portfolio</a>
+
+<script>
+window.addEventListener("load", () => {
+  document.querySelectorAll(".fade").forEach(el => el.classList.add("show"));
+});
+</script>
+
 </body>
 </html>
