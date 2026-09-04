@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pixelträger – Webdesign & Development Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pixelträger – Webdesign & Development Studio aus Berlin/Potsdam. Präzise, schnelle, moderne Websites mit fairen Preisen." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-alt: #0b0d11;
+      --accent: #f5f5f5;
+      --accent-soft: #c7ff6b;
+      --accent-strong: #7cf5ff;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --danger: #ef4444;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.55);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #111827 0, #050608 45%, #000000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,6,8,0.95), rgba(5,6,8,0.75));
+      border-bottom: 1px solid rgba(31,41,51,0.7);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: conic-gradient(from 180deg, #7cf5ff, #c7ff6b, #7cf5ff);
+      padding: 2px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .logo-mark-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #050608;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-soft);
+    }
+
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-soft);
+    }
+
+    .nav-cta {
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(124,245,255,0.7);
+      color: var(--accent-strong);
+      background: radial-gradient(circle at top left, rgba(124,245,255,0.18), rgba(5,6,8,0.9));
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.8);
+    }
+
+    .nav-cta:hover {
+      background: radial-gradient(circle at top left, rgba(124,245,255,0.28), rgba(5,6,8,0.9));
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding-top: 60px;
+      padding-bottom: 60px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span {
+      color: var(--accent-soft);
+    }
+
+    .hero-subtitle {
+      margin-top: 14px;
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .hero-tags {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(55,65,81,0.9);
+      color: var(--muted);
+      background: rgba(15,23,42,0.7);
+    }
+
+    .hero-cta-row {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(199,255,107,0.9);
+      background: radial-gradient(circle at top left, rgba(199,255,107,0.25), rgba(5,6,8,0.95));
+      color: var(--accent);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      background: radial-gradient(circle at top left, rgba(199,255,107,0.35), rgba(5,6,8,0.95));
+    }
+
+    .btn-secondary {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(75,85,99,0.9);
+      background: rgba(15,23,42,0.9);
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31,41,51,0.9);
+      background: radial-gradient(circle at top left, rgba(124,245,255,0.08), rgba(5,6,8,0.95));
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .hero-card-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .hero-card-pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(124,245,255,0.7);
+      color: var(--accent-strong);
+      background: rgba(15,23,42,0.9);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .hero-metric {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(31,41,51,0.9);
+      background: rgba(15,23,42,0.9);
+      padding: 10px 10px 9px;
+    }
+
+    .hero-metric-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-metric-value {
+      margin-top: 4px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .hero-metric-sub {
+      margin-top: 2px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-card-footer {
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-card-footer span:last-child {
+      color: var(--accent-soft);
+    }
+
+    /* Sections */
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(31,41,51,0.9);
+      background: rgba(10,12,16,0.95);
+      padding: 16px 16px 14px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .card-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .card-list li {
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .card-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent-soft);
+      font-size: 12px;
+    }
+
+    /* Pricing */
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pricing-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31,41,51,0.9);
+      background: radial-gradient(circle at top left, rgba(124,245,255,0.06), rgba(10,12,16,0.98));
+      padding: 18px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pricing-name {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .pricing-range {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent-soft);
+      margin-bottom: 6px;
+    }
+
+    .pricing-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .pricing-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .pricing-list li {
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .pricing-list li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent-strong);
+      font-size: 12px;
+    }
+
+    .pricing-footer {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .pricing-highlight {
+      color: var(--accent-soft);
+    }
+
+    /* Process */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .step {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(31,41,51,0.9);
+      background: rgba(10,12,16,0.98);
+      padding: 12px 12px 10px;
+    }
+
+    .step-number {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .step-body {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Contact */
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31,41,51,0.9);
+      background: radial-gradient(circle at top left, rgba(199,255,107,0.08), rgba(10,12,16,0.98));
+      padding: 18px 18px 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .contact-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .contact-body {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .contact-info {
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    .contact-info div {
+      margin-bottom: 4px;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .contact-inputs {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .input {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(5,6,8,0.95);
+      padding: 8px 10px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .input::placeholder {
+      color: #6b7280;
+    }
+
+    .contact-submit {
+      margin-top: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(199,255,107,0.9);
+      background: radial-gradient(circle at top left, rgba(199,255,107,0.25), rgba(5,6,8,0.95));
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+    }
+
+    .contact-submit:hover {
+      background: radial-gradient(circle at top left, rgba(199,255,107,0.35), rgba(5,6,8,0.95));
+    }
+
+    footer {
+      border-top: 1px solid rgba(31,41,51,0.9);
+      padding: 16px 20px 22px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-inner span:last-child {
+      color: var(--accent-soft);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .grid-3,
+      .pricing-grid,
+      .steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        padding-top: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-mark">
+          <div class="logo-mark-inner">Px</div>
+        </div>
+        <div>
+          <div class="logo-text-main">Pixelträger</div>
+          <div class="logo-text-sub">Webdesign & Development Studio</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pakete</a>
+        <a href="#process">Ablauf</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+      <a href="#contact" class="nav-cta">Projekt anfragen</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="section hero" id="top">
+      <div>
+        <h1 class="hero-title">
+          Präzise digitale Erlebnisse.<br />
+          <span>Pixel für Pixel.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Pixelträger ist ein kleines, fokussiertes Webdesign & Development Studio aus Berlin/Potsdam.
+          Wir bauen schnelle, klare, wartbare Websites – mit technischer Tiefe und visueller Präzision.
+        </p>
+        <div class="hero-tags">
+          <div class="tag">Webdesign</div>
+          <div class="tag">Frontend & Dev</div>
+          <div class="tag">SEO & Performance</div>
+          <div class="tag">GitHub Pages Hosting</div>
+        </div>
+        <div class="hero-cta-row">
+          <a href="#pricing" class="btn-primary">Pakete & Preise ansehen</a>
+          <a href="#contact" class="btn-secondary">Unverbindlich anfragen</a>
+        </div>
+        <p class="hero-note">
+          Faire Preise, klare Kommunikation, saubere Umsetzung – ideal für Freelancer, kleine Unternehmen & Startups.
+        </p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-title">Studio Snapshot</div>
+            <div class="hero-card-pill">Berlin / Potsdam</div>
+          </div>
+          <div class="hero-grid">
+            <div class="hero-metric">
+              <div class="hero-metric-label">Stack</div>
+              <div class="hero-metric-value">HTML · CSS · JS</div>
+              <div class="hero-metric-sub">GitHub Pages · Static Sites</div>
+            </div>
+            <div class="hero-metric">
+              <div class="hero-metric-label">Focus</div>
+              <div class="hero-metric-value">Design + Dev</div>
+              <div class="hero-metric-sub">UX · Performance · SEO</div>
+            </div>
+            <div class="hero-metric">
+              <div class="hero-metric-label">Timeline</div>
+              <div class="hero-metric-value">2–4 Wochen</div>
+              <div class="hero-metric-sub">für typische Projekte</div>
+            </div>
+            <div class="hero-metric">
+              <div class="hero-metric-label">Pricing</div>
+              <div class="hero-metric-value">unter Markt</div>
+              <div class="hero-metric-sub">transparent & fair</div>
+            </div>
+          </div>
+          <div class="hero-card-footer">
+            <span>Pixelträger – Digital Craftsmanship & Precision Engineering.</span>
+            <span>GitHub Pages ready.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+      <h2 class="section-title">Services</h2>
+      <p class="section-subtitle">
+        Wir kombinieren Design, Development und technische Optimierung, um Websites zu bauen, die schnell laden,
+        gut aussehen und gefunden werden.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Webdesign & Frontend</div>
+            <div class="card-tag">Design · UX · UI</div>
+          </div>
+          <p class="card-body">
+            Klare, moderne Layouts mit Fokus auf Lesbarkeit, Struktur und Nutzerführung.
+          </p>
+          <ul class="card-list">
+            <li>Responsives Design für alle Geräte</li>
+            <li>Saubere Typografie & Farbkonzepte</li>
+            <li>Landing Pages, Portfolios, Firmenwebsites</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Development & Struktur</div>
+            <div class="card-tag">Code · Architektur</div>
+          </div>
+          <p class="card-body">
+            Leicht wartbare, statische Websites mit klarer Struktur – ideal für GitHub Pages.
+          </p>
+          <ul class="card-list">
+            <li>HTML, CSS, JavaScript</li>
+            <li>GitHub Pages Setup & Deployment</li>
+            <li>Saubere Projektstruktur & Dokumentation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">SEO & Performance</div>
+            <div class="card-tag">Speed · Ranking</div>
+          </div>
+          <p class="card-body">
+            Technische Optimierung, damit deine Seite schnell lädt und besser gefunden wird.
+          </p>
+          <ul class="card-list">
+            <li>Basis‑SEO (Meta, Struktur, Semantik)</li>
+            <li>Pagespeed‑Optimierung</li>
+            <li>Analytics & einfache Auswertung</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+      <h2 class="section-title">Pakete & Preise</h2>
+      <p class="section-subtitle">
+        Alle Preise sind bewusst etwas unter dem üblichen Marktpreis gehalten – ideal für kleine Unternehmen,
+        Freelancer und Startups, die Qualität wollen, ohne Agentur‑Retainer.
+      </p>
+
+      <div class="pricing-grid">
+        <!-- Starter -->
+        <div class="pricing-card">
+          <div>
+            <div class="pricing-name">Starter</div>
+            <div class="pricing-range">€350 – €600</div>
+            <div class="pricing-note">Für kleine Projekte, erste Online‑Präsenz, einfache Firmenwebsites.</div>
+            <ul class="pricing-list">
+              <li>1–5 Seiten</li>
+              <li>Mobile responsive</li>
+              <li>Kontaktformular</li>
+              <li>Basis‑SEO</li>
+              <li>SSL (über Hosting‑Setup)</li>
+              <li>Google Maps Einbindung</li>
+              <li>Cookie & Datenschutz‑Hinweise</li>
+              <li>1 Überarbeitungsrunde</li>
+              <li>GitHub Pages Setup & Deployment</li>
+            </ul>
+          </div>
+          <div class="pricing-footer">
+            <span class="pricing-highlight">Ideal für Freelancer, kleine Unternehmen, einfache Landing Pages.</span>
+          </div>
+        </div>
+
+        <!-- Business -->
+        <div class="pricing-card">
+          <div>
+            <div class="pricing-name">Business</div>
+            <div class="pricing-range">€800 – €1.200</div>
+            <div class="pricing-note">Für wachsende Unternehmen mit mehr Seiten, Features und Branding‑Ansprüchen.</div>
+            <ul class="pricing-list">
+              <li>Alles aus Starter</li>
+              <li>5–10 Seiten</li>
+              <li>Individuelles, hochwertigeres Design</li>
+              <li>Google Business Integration</li>
+              <li>Analytics Setup (z.B. Plausible/GA)</li>
+              <li>Speed‑Optimierung</li>
+              <li>3–5 Überarbeitungsrunden</li>
+              <li>Basis‑Wartung für 1 Monat inklusive</li>
+              <li>SEO‑optimierte Texte (Grundniveau)</li>
+            </ul>
+          </div>
+          <div class="pricing-footer">
+            <span class="pricing-highlight">Perfekt für KMUs, Agenturen, Restaurants, Vereine, Startups.</span>
+          </div>
+        </div>
+
+        <!-- Maintenance -->
+        <div class="pricing-card">
+          <div>
+            <div class="pricing-name">Monatliche Wartung</div>
+            <div class="pricing-range">€40 – €120 / Monat</div>
+            <div class="pricing-note">Optionales Add‑on für laufende Pflege & kleine Anpassungen.</div>
+            <ul class="pricing-list">
+              <li>Regelmäßige Updates & kleine Änderungen</li>
+              <li>Sicherheits‑Checks</li>
+              <li>Monitoring & Fehlerbehebung</li>
+              <li>Pagespeed‑Kontrollen</li>
+              <li>GitHub Pages Deploy‑Support</li>
+            </ul>
+          </div>
+          <div class="pricing-footer">
+            <span>Monatlich kündbar, ideal für kontinuierliche Pflege ohne große Agenturverträge.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" id="process">
+      <h2 class="section-title">Ablauf</h2>
+      <p class="section-subtitle">
+        Klarer, transparenter Prozess – von der ersten Idee bis zur live geschalteten Website auf GitHub Pages.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">Step 01</div>
+          <div class="step-title">Kickoff & Briefing</div>
+          <div class="step-body">
+            Wir sprechen über Ziele, Inhalte, Zielgruppe und Stil. Du bekommst eine klare Empfehlung für das passende Paket.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">Step 02</div>
+          <div class="step-title">Konzept & Design</div>
+          <div class="step-body">
+            Wireframes, Layout‑Ideen, erste Design‑Entwürfe. Fokus auf Struktur, Lesbarkeit und UX.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">Step 03</div>
+          <div class="step-title">Development & Feinschliff</div>
+          <div class="step-body">
+            Umsetzung in HTML/CSS/JS, Performance‑Optimierung, SEO‑Grundlagen, Testing auf verschiedenen Geräten.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">Step 04</div>
+          <div class="step-title">Launch & Übergabe</div>
+          <div class="step-body">
+            Deployment auf GitHub Pages, kurze Einweisung, optional Wartungspaket. Deine Seite geht live.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <h2 class="section-title">Kontakt</h2>
+      <p class="section-subtitle">
+        Du hast ein Projekt im Kopf? Schreib kurz, was du brauchst – wir melden uns mit einer ehrlichen Einschätzung
+        und einem klaren Angebot.
+      </p>
+
+      <div class="contact-card">
+        <div>
+          <div class="contact-title">Projekt anfragen</div>
+          <p class="contact-body">
+            Je konkreter du bist, desto besser können wir einschätzen, welches Paket passt und wie der Zeitrahmen aussieht.
+          </p>
+          <div class="contact-info">
+            <div><span class="contact-label">E‑Mail</span><br />info@pixeltraeger.de (Platzhalter – passe an deine echte Adresse an)</div>
+            <div style="margin-top:8px;"><span class="contact-label">Standort</span><br />Potsdam / Berlin</div>
+          </div>
+        </div>
+        <div>
+          <!-- Static form (you can wire it to Formspree or similar later) -->
+          <div class="contact-inputs">
+            <input class="input" type="text" placeholder="Name / Unternehmen" />
+            <input class="input" type="email" placeholder="E‑Mail" />
+            <input class="input" type="text" placeholder="Budget‑Rahmen (z.B. Starter / Business)" />
+            <textarea class="input" rows="4" placeholder="Kurzbeschreibung des Projekts, Ziele, gewünschter Zeitraum"></textarea>
+          </div>
+          <button class="contact-submit" type="button">
+            Anfrage vorbereiten (manuell per E‑Mail senden)
+          </button>
+          <p class="hero-note" style="margin-top:6px;">
+            Hinweis: Auf GitHub Pages kannst du dieses Formular z.B. mit Formspree oder einem anderen Dienst verbinden,
+            oder einfach als Vorlage für deine E‑Mail nutzen.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Pixelträger – Webdesign & Development Studio.</span>
+      <span>Built for GitHub Pages. Crafted in Berlin / Potsdam.</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
