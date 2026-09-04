@@ -627,6 +627,42 @@
   </style>
 </head>
 <body>
+
+   <div id="cookie-banner" style="
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 480px;
+  background: #111827;
+  color: #e5e7eb;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+  z-index: 50;
+">
+  <div style="margin-bottom: 8px;">
+    <strong>Cookie‑Hinweis</strong><br>
+    Diese Website verwendet ausschließlich technisch notwendige Cookies.
+    Es findet kein Tracking und keine Analyse statt.
+  </div>
+  <button onclick="document.getElementById('cookie-banner').style.display='none';"
+    style="
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #7cf5ff;
+      background: #0b0d11;
+      color: #7cf5ff;
+      font-size: 12px;
+      cursor: pointer;
+    ">
+    Verstanden
+  </button>
+</div> 
 <div class="page">
   <header>
     <nav class="nav">
@@ -790,7 +826,7 @@
               <li>Google Maps Einbindung</li>
               <li>Cookie & Datenschutz‑Hinweise</li>
               <li>1 Überarbeitungsrunde</li>
-              <li>GitHub Pages Setup & Deployment</li>
+
             </ul>
           </div>
           <div class="pricing-footer">
@@ -867,14 +903,14 @@
           <div class="step-number">Step 03</div>
           <div class="step-title">Development & Feinschliff</div>
           <div class="step-body">
-            Umsetzung in HTML/CSS/JS, Performance‑Optimierung, SEO‑Grundlagen, Testing auf verschiedenen Geräten.
+            Umsetzung, Performance‑Optimierung, SEO‑Grundlagen, Testing auf verschiedenen Geräten.
           </div>
         </div>
         <div class="step">
           <div class="step-number">Step 04</div>
           <div class="step-title">Launch & Übergabe</div>
           <div class="step-body">
-            Deployment auf GitHub Pages, kurze Einweisung, optional Wartungspaket. Deine Seite geht live.
+            Deployment, kurze Einweisung, optional Wartungspaket. Deine Seite geht live.
           </div>
         </div>
       </div>
@@ -895,8 +931,7 @@
             Je konkreter du bist, desto besser können wir einschätzen, welches Paket passt und wie der Zeitrahmen aussieht.
           </p>
           <div class="contact-info">
-            <div><span class="contact-label">E‑Mail</span><br />info@pixeltraeger.de (Platzhalter – passe an deine echte Adresse an)</div>
-            <div style="margin-top:8px;"><span class="contact-label">Standort</span><br />Potsdam / Berlin</div>
+
           </div>
         </div>
         <div>
@@ -908,11 +943,10 @@
             <textarea class="input" rows="4" placeholder="Kurzbeschreibung des Projekts, Ziele, gewünschter Zeitraum"></textarea>
           </div>
           <button class="contact-submit" type="button">
-            Anfrage vorbereiten (manuell per E‑Mail senden)
+            Anfrage vorbereiten 
           </button>
           <p class="hero-note" style="margin-top:6px;">
-            Hinweis: Auf GitHub Pages kannst du dieses Formular z.B. mit Formspree oder einem anderen Dienst verbinden,
-            oder einfach als Vorlage für deine E‑Mail nutzen.
+
           </p>
         </div>
       </div>
@@ -922,7 +956,12 @@
   <footer>
     <div class="footer-inner">
       <span>© <span id="year"></span> Pixelträger – Webdesign & Development Studio.</span>
-      <span>Built for GitHub Pages. Crafted in Berlin / Potsdam.</span>
+      <span>Crafted in Berlin / Potsdam.</span>
+       <span>
+        <a href="impressum.html" style="color:#7cf5ff;">Impressum</a> ·
+        <a href="datenschutz.html" style="color:#7cf5ff;">Datenschutz</a> ·
+        <a href="agb.html" style="color:#7cf5ff;">AGB</a>
+      </span>
     </div>
   </footer>
 </div>
