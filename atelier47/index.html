@@ -2,99 +2,115 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ATELIER‑47 Photography – Portfolio</title>
+<title>ATELIER‑47 Photography</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
   margin:0; padding:0;
+  background:#0a0a0a; color:#f5f5f5;
   font-family:"Inter", sans-serif;
-  background:#0b0d11; color:#f5f5f5;
   overflow-x:hidden;
 }
 
-/* Fade-in */
-.fade { opacity:0; transform:translateY(20px); transition:all 1s ease; }
+/* FADE */
+.fade { opacity:0; transform:translateY(40px); transition:all 1.4s ease; }
 .fade.show { opacity:1; transform:translateY(0); }
 
-/* Cinematic header */
-header {
-  height:60vh;
+/* HERO */
+.hero {
+  height:100vh;
   background:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
   display:flex; align-items:center; justify-content:center;
-  text-align:center;
+  position:relative;
 }
-header h1 {
-  font-size:48px; font-weight:600;
-  backdrop-filter:blur(6px);
+.hero::after {
+  content:"";
+  position:absolute; inset:0;
+  background:rgba(0,0,0,0.55);
+}
+.hero h1 {
+  position:relative;
+  font-size:64px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
   padding:20px 40px;
-  background:rgba(0,0,0,0.4);
-  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.2);
+  backdrop-filter:blur(6px);
 }
 
-/* Gallery */
+/* CINEMATIC GALLERY */
 .section {
-  max-width:1100px; margin:60px auto; padding:0 20px;
+  max-width:1200px; margin:120px auto; padding:0 20px;
 }
 .grid {
   display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:24px;
 }
 .card {
-  background:rgba(255,255,255,0.05);
-  border-radius:12px;
-  padding:20px;
-  transition:transform .4s ease, background .4s ease;
-}
-.card:hover {
-  transform:translateY(-10px);
-  background:rgba(255,255,255,0.12);
+  position:relative;
+  overflow:hidden;
+  border-radius:16px;
 }
 .card img {
-  width:100%; border-radius:10px; margin-bottom:12px;
+  width:100%;
+  filter:grayscale(100%) contrast(120%);
+  transition:filter 1.2s ease, transform 1.2s ease;
 }
-.card h2 { font-size:22px; margin-bottom:8px; }
-.card p { color:#d1d5db; }
+.card:hover img {
+  filter:grayscale(0%) contrast(100%);
+  transform:scale(1.08);
+}
+.card h2 {
+  margin-top:16px;
+  font-size:28px;
+  text-transform:uppercase;
+}
+.card p {
+  color:#bdbdbd;
+  font-size:16px;
+}
 
 .back {
-  display:block; text-align:center; margin:40px auto;
-  color:#c7ff6b; text-decoration:none;
-  font-size:14px;
+  display:block; text-align:center; margin:80px auto;
+  color:#c7ff6b; font-size:16px; text-decoration:none;
 }
 </style>
 </head>
 <body>
 
-<header>
-  <h1 class="fade">ATELIER‑47 Photography</h1>
-</header>
+<div class="hero fade">
+  <h1>ATELIER‑47 Photography</h1>
+</div>
 
-<section class="section fade">
+<div class="section fade">
   <div class="grid">
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1600&q=80">
       <h2>NOIR – Editorial</h2>
-      <p>Architectural storytelling through light and shadow.</p>
+      <p>Light. Shadow. Geometry. Stories carved into silence.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80">
+      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80">
       <h2>BAUWERK – Architecture</h2>
-      <p>Minimalist compositions of urban structures.</p>
+      <p>Urban minimalism. Concrete poetry. Structural rhythm.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80">
       <h2>LUMEN – Campaign</h2>
-      <p>Fashion and lifestyle photography with cinematic tone.</p>
+      <p>Cinematic fashion. Soft light. Human presence.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80">
       <h2>AUREA – Still Life</h2>
-      <p>Elegant product imagery with refined lighting.</p>
+      <p>Objects elevated. Light sculpted. Silence captured.</p>
     </div>
+
   </div>
-</section>
+</div>
 
 <a class="back" href="../portfolio.html">← Back to Portfolio</a>
 

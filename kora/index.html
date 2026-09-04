@@ -2,92 +2,96 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>KORA Pilates – Portfolio</title>
+<title>KORA Pilates</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
   margin:0; padding:0;
+  background:#f7f4ef; color:#333;
   font-family:"Garamond", serif;
-  background:#f5f3ef; color:#333;
   overflow-x:hidden;
 }
 
-/* Fade-in */
-.fade { opacity:0; transform:translateY(20px); transition:all 1s ease; }
+/* FADE */
+.fade { opacity:0; transform:translateY(40px); transition:all 1.4s ease; }
 .fade.show { opacity:1; transform:translateY(0); }
 
-/* Soft header */
-header {
-  height:55vh;
+/* HERO */
+.hero {
+  height:90vh;
   background:url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1600&q=80') center/cover;
   display:flex; align-items:center; justify-content:center;
-  text-align:center;
+  position:relative;
 }
-header h1 {
-  font-size:42px;
-  background:rgba(255,255,255,0.6);
+.hero::after {
+  content:"";
+  position:absolute; inset:0;
+  background:rgba(255,255,255,0.45);
+}
+.hero h1 {
+  position:relative;
+  font-size:56px;
   padding:20px 40px;
-  border-radius:12px;
+  background:rgba(255,255,255,0.7);
+  border-radius:20px;
 }
 
-/* Cards */
+/* FLOATING CARDS */
 .section {
-  max-width:1100px; margin:60px auto; padding:0 20px;
-}
-.grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:24px;
+  max-width:1200px; margin:120px auto; padding:0 20px;
 }
 .card {
-  background:#eae7e2;
-  border-radius:12px;
-  padding:20px;
-  transition:transform .4s ease, background .4s ease;
+  background:#fff;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.1);
+  transition:transform 0.8s ease, box-shadow 0.8s ease;
 }
 .card:hover {
-  transform:translateY(-10px);
-  background:#e2dfd9;
+  transform:translateY(-20px);
+  box-shadow:0 30px 60px rgba(0,0,0,0.15);
 }
 .card img {
-  width:100%; border-radius:10px; margin-bottom:12px;
+  width:100%; border-radius:16px; margin-bottom:20px;
 }
-.card h2 { font-size:22px; margin-bottom:8px; }
-.card p { color:#555; }
+.card h2 {
+  font-size:32px; margin-bottom:10px;
+}
+.card p {
+  font-size:18px; color:#555;
+}
 
 .back {
-  display:block; text-align:center; margin:40px auto;
-  color:#6b705c; text-decoration:none;
-  font-size:14px;
+  display:block; text-align:center; margin:80px auto;
+  color:#6b705c; font-size:16px; text-decoration:none;
 }
 </style>
 </head>
 <body>
 
-<header>
-  <h1 class="fade">KORA Pilates Studio</h1>
-</header>
+<div class="hero fade">
+  <h1>KORA Pilates Studio</h1>
+</div>
 
-<section class="section fade">
-  <div class="grid">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1594737625785-cd0a5f6f0c5b?auto=format&fit=crop&w=1200&q=80">
-      <h2>Reformer Pilates</h2>
-      <p>Kraft, Kontrolle & Ausrichtung – Training mit Geräten.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07f?auto=format&fit=crop&w=1200&q=80">
-      <h2>Mat Pilates</h2>
-      <p>Klassisches Pilates für Flexibilität & Stabilität.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1554344054-77a0e7e0e5f8?auto=format&fit=crop&w=1200&q=80">
-      <h2>Yoga Flow</h2>
-      <p>Fließende Sequenzen für Körper & Geist.</p>
-    </div>
+<div class="section fade">
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1594737625785-cd0a5f6f0c5b?auto=format&fit=crop&w=1600&q=80">
+    <h2>Reformer Pilates</h2>
+    <p>Fließende Bewegungen. Tiefe Kontrolle. Körperbewusstsein in seiner reinsten Form.</p>
   </div>
-</section>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07f?auto=format&fit=crop&w=1600&q=80">
+    <h2>Mat Pilates</h2>
+    <p>Stabilität, Balance, Eleganz. Klassisches Pilates neu interpretiert.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1554344054-77a0e7e0e5f8?auto=format&fit=crop&w=1600&q=80">
+    <h2>Yoga Flow</h2>
+    <p>Bewegung als Meditation. Atem als Rhythmus. Körper als Tempel.</p>
+  </div>
+</div>
 
 <a class="back" href="../portfolio.html">← Zurück zum Portfolio</a>
 

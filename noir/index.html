@@ -2,94 +2,104 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>NOIR Architektur – Portfolio</title>
+<title>NOIR Architektur</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
   margin:0; padding:0;
-  font-family: "Inter", sans-serif;
-  background:#0b0d11; color:#f5f5f5;
+  background:#0a0a0a; color:#eaeaea;
+  font-family:"Inter", sans-serif;
   overflow-x:hidden;
 }
 
-/* Smooth fade-in */
-.fade { opacity:0; transform:translateY(20px); transition:all 1s ease; }
+/* GLOBAL FADE-IN */
+.fade { opacity:0; transform:translateY(40px); transition:all 1.4s ease; }
 .fade.show { opacity:1; transform:translateY(0); }
 
-/* Parallax header */
-header {
-  height:60vh;
+/* HERO — CINEMATIC PARALLAX */
+.hero {
+  height:100vh;
   background:url('https://images.unsplash.com/photo-1529429617124-95b109e86a9a?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
   display:flex; align-items:center; justify-content:center;
-  text-align:center;
+  position:relative;
 }
-header h1 {
-  font-size:48px; font-weight:600;
+.hero::after {
+  content:"";
+  position:absolute; inset:0;
+  background:rgba(0,0,0,0.55);
+}
+.hero h1 {
+  position:relative;
+  font-size:64px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-weight:700;
   backdrop-filter:blur(6px);
   padding:20px 40px;
-  background:rgba(0,0,0,0.4);
-  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.2);
 }
 
-/* Project cards */
+/* SECTION — IMMERSIVE PROJECTS */
 .section {
-  max-width:1100px; margin:60px auto; padding:0 20px;
+  max-width:1200px; margin:120px auto; padding:0 20px;
 }
-.grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:24px;
+.project {
+  margin-bottom:120px;
+  position:relative;
 }
-.card {
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:12px;
-  padding:20px;
-  transition:transform .4s ease, background .4s ease;
+.project img {
+  width:100%; border-radius:16px;
+  filter:grayscale(100%) contrast(120%);
+  transition:filter 1s ease, transform 1s ease;
 }
-.card:hover {
-  transform:translateY(-10px);
-  background:rgba(255,255,255,0.12);
+.project:hover img {
+  filter:grayscale(0%) contrast(100%);
+  transform:scale(1.02);
 }
-.card img {
-  width:100%; border-radius:10px; margin-bottom:12px;
+.project h2 {
+  font-size:42px; margin-top:20px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
 }
-.card h2 { font-size:22px; margin-bottom:8px; }
-.card p { color:#d1d5db; }
+.project p {
+  max-width:700px;
+  color:#bdbdbd;
+  font-size:18px;
+  line-height:1.7;
+}
 
+/* BACK */
 .back {
-  display:block; text-align:center; margin:40px auto;
-  color:#7cf5ff; text-decoration:none;
-  font-size:14px;
+  display:block; text-align:center; margin:80px auto;
+  color:#7cf5ff; font-size:16px; text-decoration:none;
 }
 </style>
 </head>
 <body>
 
-<header>
-  <h1 class="fade">NOIR Architektur</h1>
-</header>
+<div class="hero fade">
+  <h1>NOIR Architektur</h1>
+</div>
 
-<section class="section fade">
-  <div class="grid">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80">
-      <h2>Villa am Wannsee</h2>
-      <p>Minimalistische Wohnarchitektur mit Beton, Glas und Lichtführung.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80">
-      <h2>Gewerbehof Altona</h2>
-      <p>Urbaner Gewerbekomplex mit nachhaltigen Materialien und klarer Struktur.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1529429617124-95b109e86a9a?auto=format&fit=crop&w=1200&q=80">
-      <h2>Haus E36</h2>
-      <p>Geometrische Linien, offene Räume, zeitlose Architektur.</p>
-    </div>
+<div class="section fade">
+  <div class="project">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80">
+    <h2>Villa am Wannsee</h2>
+    <p>Ein architektonisches Manifest aus Beton, Glas und Licht. Räume, die atmen. Linien, die sprechen.</p>
   </div>
-</section>
+
+  <div class="project">
+    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80">
+    <h2>Gewerbehof Altona</h2>
+    <p>Urbaner Komplex mit industrieller Eleganz. Struktur, Rhythmus, Materialehrlichkeit.</p>
+  </div>
+
+  <div class="project">
+    <img src="https://images.unsplash.com/photo-1529429617124-95b109e86a9a?auto=format&fit=crop&w=1600&q=80">
+    <h2>Haus E36</h2>
+    <p>Geometrische Präzision. Räume als Skulpturen. Architektur als stille Poesie.</p>
+  </div>
+</div>
 
 <a class="back" href="../portfolio.html">← Zurück zum Portfolio</a>
 
